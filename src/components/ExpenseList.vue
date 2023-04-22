@@ -1,26 +1,21 @@
 <template>
   <div>
-    <p>{{ title }}</p>
+    <h4>{{ title }}</h4>
     <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
+      <li v-for="expense in expenses" :key="expense.uid">
+        {{ expense.uid }} - {{ expense.expenditure }} - {{ expense.amount}}
       </li>
     </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Todo, Meta } from './models';
+import { Expense } from 'models/expense';
 
 interface Props {
   title: string;
-  todos?: Todo[];
-  meta: Meta;
-  active: boolean;
+  expenses?: Expense[];
 }
 const props = withDefaults(defineProps<Props>(), {
   todos: () => [],

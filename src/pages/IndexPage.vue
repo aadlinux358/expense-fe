@@ -1,42 +1,38 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <ExpenseList
+      title="Expenses"
+      :expenses="expenses"
+     />
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { Expense } from 'models/expense';
+import ExpenseList from 'components/ExpenseList.vue';
 import { ref } from 'vue';
 
-const todos = ref<Todo[]>([
+const expenses = ref<Expense[]>([
   {
-    id: 1,
-    content: 'ct1'
+    uid: '1',
+    expenditure: 'beer',
+    amount: 4000,
+    date_created: '2023-03-12',
+    date_modified: '2023-03-12'
   },
   {
-    id: 2,
-    content: 'ct2'
+    uid: '2',
+    expenditure: 'sugar',
+    amount: 5000,
+    date_created: '2023-03-12',
+    date_modified: '2023-03-12'
   },
   {
-    id: 3,
-    content: 'ct3'
+    uid: '3',
+    expenditure: 'water',
+    amount: 2200,
+    date_created: '2023-03-12',
+    date_modified: '2023-03-12'
   },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
 ]);
-const meta = ref<Meta>({
-  totalCount: 1200
-});
 </script>
