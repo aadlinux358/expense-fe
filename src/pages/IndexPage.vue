@@ -1,7 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <ExpenseList
-      title="Sonia Yonas Tesfagabr"
+      title="Expenses List"
       :expenses="expenses"
      />
   </q-page>
